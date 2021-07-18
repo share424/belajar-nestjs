@@ -4,14 +4,10 @@ import {
   Delete,
   Get,
   Param,
-  ParseIntPipe,
   Post,
   Put,
   Query,
-  UsePipes,
-  ValidationPipe,
 } from '@nestjs/common';
-import { IsUUID } from 'class-validator';
 import { UUIDValidationPipe } from 'src/pipes/uuid-validation.pipe';
 import { BooksService } from './books.service';
 import { CreateBookDto } from './dto/create-book.dto';

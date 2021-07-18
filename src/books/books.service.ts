@@ -1,6 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { v4 as uuidv4 } from 'uuid';
 import { CreateBookDto } from './dto/create-book.dto';
 import { FilterBookDto } from './dto/filter-book.dto';
 import { UpdateBookDto } from './dto/update-book.dto';
@@ -30,7 +29,7 @@ export class BooksService {
     return book;
   }
 
-  async updateBook(id: string, updateBookDto): Promise<void> {
+  async updateBook(id: string, updateBookDto: UpdateBookDto): Promise<void> {
     const { title, author, category, year } = updateBookDto;
 
     const book = await this.getBookById(id);
