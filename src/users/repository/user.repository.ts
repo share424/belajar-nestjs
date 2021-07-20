@@ -28,4 +28,13 @@ export class UserRepository extends Repository<User> {
       }
     }
   }
+
+  async validateUser(email: string, password: string): Promise<User> {
+    const user = await this.findOne({ email });
+
+    if (user && (await user.validatePassword(password))) {
+      return user;
+    }
+    return null;
+  }
 }
